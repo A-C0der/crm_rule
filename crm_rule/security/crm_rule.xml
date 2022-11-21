@@ -1,0 +1,23 @@
+<odoo>
+
+<record id="crm_user" model="res.groups">
+            <field name="name">Admin Access</field>
+            <field name="category_id" ref="module_crm"/>
+</record>
+
+<record id="crm_manager" model="res.groups">
+
+            <field name="name">Customer Access</field>
+
+            <field name="category_id" ref="module_crm"/>
+            <field name="implied_ids" eval="[(4, ref('crm_user'))]"/>
+
+        </record>
+    <record model="ir.module.category" id="module_crm">
+             <field name="name">CRM Access</field>
+             <field name="description">Only Customer can see his pipeline.</field>
+             <field name="sequence">20</field>
+        </record>
+
+
+</odoo>
